@@ -1,0 +1,149 @@
+<?php
+  $page_title = 'Add Qualification';
+  require_once('includes/load.php');
+  // Checkin What level user has permission to view this page
+   page_require_level(2);
+   
+
+
+?>
+<?php include_once('layouts/header.php'); ?>
+<!-- Breadcrumb -->
+<nav class="breadcrumbs">
+ 
+   <a href="hr_qualification.php" class="breadcrumbs__item">Back</a>
+ 
+  <a href="#checkout" class="breadcrumbs__item is-active">Add Qualification</a>
+</nav>
+<!-- /Breadcrumb -->
+
+<!-- Data table start -->
+<div class="row">
+  <!-- Notification div -->
+  <div class="row">
+     <div class="col-md-12">
+       <?php echo display_msg($msg); ?>
+     </div>
+  </div>
+  <!-- End Notification div -->
+
+  <div class="col-md-12 mb-3">
+    <div class="card">
+      <div class="card-header">
+        <span class="badge rounded-pill bg-primary"><i class="bi bi-plus"></i> Add Qualification</span>
+      </div>
+      <div class="card-body">
+        <div class="row">
+          <div class="col-lg-12">
+            <div class="card-box">
+              <form action="hr2-codes.php" method="POST">
+                 <div class="form-group row">
+                    <label class="col-form-label col-md-4">Department</label>
+                      <div class="col-md-8">
+                         <select class="dept form-control" name="dept" required>
+                          <option value="">Select Department</option>
+                        <?php 
+                        $sql = "SELECT * FROM departments";
+                        $res = $db->query($sql);
+                        $dept = $res->fetch_assoc();
+
+                        do{
+                         ?>
+
+                          <option value=<?php echo $dept['dept_id']?>><?php echo ucwords($dept['dept_name'])?></option>
+                          <?php }while($dept=$res->fetch_assoc()); ?>
+                        </select>
+                    </div>
+                  </div><br>
+                  <div class="form-group row">
+                    <label class="col-form-label col-md-4">Job title</label>
+                      <div class="col-md-8">
+                        <input type="hidden" name="page" value="<?php echo $_GET['page'] ?>">
+                        <select name="jt" class="jt form-control" required>
+                        </select>
+                    </div>
+                  </div> <br>
+                  <div class="form-group row">
+                    <label class="col-form-label col-md-4">Job Description</label>
+                      <div class="col-md-8">
+                        <input type="text" name="jd" class="form-control" required>
+                    </div>
+                  </div> <br>
+                  <div class="form-group row">
+                    
+                    <label class="col-form-label col-md-4">Job qualification</label>
+                    <div class="col-md-8">
+                      <input type="text" name="jq" class="form-control" requireds>
+                    </div>
+                  </div> <br>
+                  
+                    
+                  <br> <br> <br>
+                  <div class="form-group row mt-10">
+                    <label class="col-form-label col-md-4"></label>
+                    <div class="col-md-8">
+                      <button type="submit" name="addquali" class="btn btn-primary text-white">Submit</button>
+                      <a href="<?php echo $_GET['page']?>" class="btn btn-secondary text-white" data-dismiss="modal">Back</a>
+                    </div>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+</div>
+</div>
+</main>
+    <!-- All Script -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.3.0/js/bootstrap-datepicker.min.js"></script>
+    <script src="./libs/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@3.0.2/dist/chart.min.js"></script>
+    <script src="./libs/js/jquery-3.5.1.js"></script>
+    <script src="./libs/js/jquery.dataTables.min.js"></script>
+    <script src="./libs/js/dataTables.bootstrap5.min.js"></script>
+    <script src="./libs/js/script.js"></script>
+    <script src="./libs/js/sweetalert2.min.js"></script>
+     <script type="text/javascript">
+        $(document).ready(function()
+        {
+
+            $(".dept").change(function(){
+              var dept_id = $(this).val();
+              $.ajax({
+                url:"positions.php",
+                method: "POST",
+                data:{dept_id:dept_id},
+                dataType:"text",
+                success:function(data){
+                  $(".jt").html(data);
+                }
+              });
+            });
+    });
+    </script>
+    <?php
+    if(isset($_SESSION['status']) && $_SESSION['status'] !='')
+    {
+    ?>
+    <script>
+    swal.fire({
+    title: "<?php echo $_SESSION['status']; ?>",
+    icon: "<?php echo $_SESSION['status_code']; ?>",
+    button: "OK",
+    });
+    </script>
+    <?php
+    unset($_SESSION['status']);
+    }
+    ?>
+   <!-- End of Script Links -->
+
+  </body>
+</html>
+
+<?php if(isset($db)) { $db->db_disconnect(); } ?>

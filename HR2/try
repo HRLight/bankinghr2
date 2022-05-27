@@ -1,0 +1,22 @@
+<script type="text/javascript">
+    function EnableDisableTextBox(ddlModels) {
+        var selectedValue = ddlModels.options[ddlModels.selectedIndex].value;
+        var txtOther = document.getElementById("txtOther");
+        txtOther.disabled = selectedValue == 5 ? false : true;
+        if (!txtOther.disabled) {
+            txtOther.focus();
+        }
+    }
+</script>
+<span>Your favorite Bike model?</span>
+<select id = "ddlModels" onchange = "EnableDisableTextBox(this)">
+    <option value = "1">Harley Davidson</option>
+    <option value = "2">Dukati</option>
+    <option value = "3">BMW</option>
+    <option value = "4">Suzuki</option>
+    <option value = "5">Other</option>
+</select>
+<br />
+<br />
+Other:
+<input type="text" id="txtOther" disabled="disabled" />
