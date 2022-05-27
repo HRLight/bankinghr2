@@ -11,11 +11,12 @@
       $dept = $_POST['dept'];
       $page = $_POST['page'];
       $pos = $_POST['pos'];
-
+      $op1=$_POST['ops'];
+      $op2=$_POST['opr'];
+      $op3=$_POST['opd'];
     
-        $query = "INSERT INTO questionaires (question,answer,department,position) VALUES ('$que','$ans','$dept','$pos')";
+        $query = "INSERT INTO questionaires (question,answer,dept_id,pos_id,Option1,Option2,Option3) VALUES ('$que','$ans','$dept','$pos','$op1','$op2','$op3')";
        
-    
         if($db->query($query))
         {
            $session->msg('s','Question added');
@@ -60,12 +61,36 @@
                         <input type="text" name="que" class="form-control" placeholder="Input Question" required>
                     </div>
                   </div> <br>
+
+                  <div class="form-group row">
+                    <label class="col-form-label col-md-4">Option 1</label>
+                      <div class="col-md-8">
+                        <input type="text" name="ops" class="form-control" placeholder="Input Choice 1"  required>
+                    </div>
+                  </div> <br>
+
+                 <div class="form-group row">
+                    <label class="col-form-label col-md-4">Option 2</label>
+                      <div class="col-md-8">
+                        <input type="text" name="opr" class="form-control" placeholder="Input Choice 2"  required>
+                    </div>
+                  </div> <br>
+
+                  <div class="form-group row">
+                    <label class="col-form-label col-md-4">Option 3</label>
+                      <div class="col-md-8">
+                        <input type="text" name="opd" class="form-control" placeholder="Input Choice 3"  required>
+                    </div>
+                  </div> <br>
+
                   <div class="form-group row">
                     <label class="col-form-label col-md-4">Answer</label>
                       <div class="col-md-8">
                         <input type="text" name="ans" class="form-control" placeholder="Input Answer Key"  required>
                     </div>
                   </div> <br>
+
+
                   <div class="form-group row">
                     <label class="col-form-label col-md-4">Department</label>
                       <div class="col-md-8">

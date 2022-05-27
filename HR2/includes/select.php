@@ -1,8 +1,8 @@
 <?php
 
 define('DB_SERVER', 'localhost'); //enter server name of db
-define('DB_USERNAME', 'u811015322_Systembanking6'); // enter username
-define('DB_PASSWORD', 'Systembanking6@gmail'); // enter pass of db
+define('DB_USERNAME', 'root'); // enter username
+define('DB_PASSWORD', ''); // enter pass of db
 define('DB_NAME', 'u811015322_obms_db'); //enter dbname here
 
  

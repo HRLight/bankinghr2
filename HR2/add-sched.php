@@ -79,6 +79,12 @@
                         <input type="date" min="<?php echo $limit ?>" name="ts_to" class="form-control">
                     </div>
                   </div><br>
+                  <div class="form-group row">
+                    <label class="col-form-label col-md-4">Time</label>
+                      <div class="col-md-8">
+                        <input type="time"  name="time2" class="form-control">
+                    </div>
+                  </div><br>
                   
                   <div class="form-group row">
                     <label class="col-form-label col-md-4">Facility:</label>
@@ -109,7 +115,12 @@
                     </div>
                   </div><br>
                   
-                     
+                      <div class="form-group row">
+                    <label class="col-form-label col-md-4">Budget</label>
+                      <div class="col-md-8">
+                        <input type="number"  name="budget" class="form-control">
+                    </div>
+                  </div><br>
                   <br>
                   <div class="form-group row mt-10">
                     <label class="col-form-label col-md-4"></label>

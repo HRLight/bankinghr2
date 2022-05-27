@@ -37,14 +37,17 @@
          class="table table-striped data-table"
          style="width: 100%" >
          <thead>
+
           <tr>
-            
             <th>Seminar Title </th>
-            <th>Date</th>
+            <th>Start Date</th>
+            <th>End Date</th>
             <th>Time</th>
+            <th>Budget</th>
             <th>Location/Room</th>
             <th>Actions</th>
           </tr>
+
         </thead>
         <tbody>
         <?php foreach($all_users as $a_user): ?>
@@ -52,7 +55,10 @@
              
                <td><?php echo remove_junk(ucwords($a_user['title']))?></td>
                <td><?php echo remove_junk(ucwords($a_user['date']))?></td>
+               <td><?php echo remove_junk(ucwords($a_user['enddate']))?></td>
                <td><?php echo remove_junk(ucwords(date('h:i:s a',strtotime($a_user['time']))))?></td>
+               <td><?php echo remove_junk(ucwords($a_user['budget']))?></td>
+              
                <td><?php echo remove_junk(ucwords($a_user['location']))?></td>
                <td>
                 <?php if($a_user['status'] == 'Approved'){

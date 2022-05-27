@@ -8,9 +8,11 @@ page_require_level(2);
 if(isset($_POST['add_sched'])){
 
   $title = $db->escape($_POST['title']);
-  $date = $_POST['date'];
+  $date = date('Y-m-d',strtotime($_POST['startdate']));
+   $enddate = date('Y-m-d',strtotime($_POST['enddate']));
   
   $time = $_POST['time'];
+  $budget= $_POST['budget'];
   $location = $_POST['loc'];
   $ext = 'no';
   if($location == 'others'){
@@ -19,10 +21,10 @@ if(isset($_POST['add_sched'])){
   }
   
 
- $sql = "INSERT INTO seminar_sched (title,date,time,location,status,external) VALUES ('$title','$date','$time','$location','manager approval','$ext')";
+ $sql = "INSERT INTO seminar_sched (title,date,enddate,time,location,status,external,budget) VALUES ('$title','$date','$enddate','$time','$location','manager approval','$ext','$budget')";
   if($db->query($sql)){
 
-     $sql = "SELECT seminar_id FROM seminar_sched WHERE title = '$title'";
+      $sql = "SELECT seminar_id FROM seminar_sched WHERE title = '$title'";
       $res = $db->query($sql);
       $id = $res->fetch_assoc();
       $id = $id['seminar_id'];
@@ -45,10 +47,6 @@ if(isset($_POST['add_sched'])){
  }
    
     }
-
-
-
-  
     
   }
   
@@ -112,11 +110,20 @@ if(isset($_POST['add_sched'])){
                   </div><br>
                   
                   <div class="form-group row">
-                    <label class="col-form-label col-md-4">Date:</label>
+                    <label class="col-form-label col-md-4">Start Date:</label>
                       <div class="col-md-8">
-                        <input type="date" name="date" min="<?php echo date('Y-m-d')?>" class="form-control">
+                        <input type="date" name="startdate" min="<?php echo date('Y-m-d')?>" class="form-control">
                     </div>
                   </div><br>
+
+                    <div class="form-group row">
+                    <label class="col-form-label col-md-4">End Date:</label>
+                      <div class="col-md-8">
+                        <input type="date" name="enddate" min="<?php echo date('Y-m-d')?>" class="form-control">
+                    </div>
+                  </div><br>
+
+
                   <div class="form-group row">
                     <label class="col-form-label col-md-4">Time:</label>
                       <div class="col-md-8">
@@ -150,6 +157,13 @@ if(isset($_POST['add_sched'])){
                     <label class="col-form-label col-md-4">Facility Image</label>
                       <div class="pic col-md-8">
                        
+                    </div>
+                  </div><br>
+
+                       <div class="form-group row">
+                    <label class="col-form-label col-md-4">Budget </label>
+                      <div class="col-md-8">
+                        <input type="number" name="budget"  class="form-control" placeholder="Add budget ">
                     </div>
                   </div><br>
                   

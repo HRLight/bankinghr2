@@ -57,7 +57,7 @@
                 <td><?php echo $rows['employee_id']; ?></td>
                 <td><?php echo $rows['first_name'].' '.$rows['last_name']; ?></td>
                 <td><?php echo str_replace('_',' ',$rows['pos_name']); ?></td>
-                <td><?php echo $rows['average']; ?></td>
+                <td><?php echo $rows['average']; ?>%</td>
               </tr>
               <?php
               }while($rows =$att_list_run->fetch_assoc()); }
@@ -66,6 +66,9 @@
            </tbody>
          </table>
         </div>
+
+
+        
       </div>
     </div>
   </div>

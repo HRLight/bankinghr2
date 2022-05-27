@@ -54,6 +54,9 @@
                         <th>Question ID</th>
                         <th>Question</th>
                         <th>Answer</th>
+                         <th>Option 1</th>
+                        <th>Option 2</th>
+                        <th>Option 3</th>
                         <th>Position</th>
                         <th class="text-right" style="width:12%">Action</th>
              </tr>
@@ -67,7 +70,6 @@
                     $att_list_run = $db->query($att_list);
                     $row = $att_list_run->fetch_assoc();
                     $rows = $att_list_run->num_rows;
-                    
                     if($rows > 0 )
                     {
                     do
@@ -75,8 +77,11 @@
                     ?>
                     <tr>
                         <td><?php echo $row['id']; ?></td>
-                        <td><?php echo $row['question']; ?></td>
+                        <td><?php echo $row['question'];?></td>
                         <td><?php echo $row['answer']; ?></td>
+                        <td><?php echo $row['Option1']; ?></td>
+                        <td><?php echo $row['Option2']; ?></td>
+                        <td><?php echo $row['Option3']; ?></td>
                         <td><?php echo str_replace('_',' ',$row['pos_name']); ?></td>
                         <td>
                             <a href="edit_question.php?id=<?php echo $row['id']; ?>&page=log_exams.php" class="btn btn-sm btn-success pull-right">Edit</a>

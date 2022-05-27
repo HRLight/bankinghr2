@@ -45,7 +45,30 @@
                       <input type="text" name="question" class="form-control" value="<?php echo $row['question'];?>">
                     </div>
                   </div> <br>
+
                    <div class="form-group row">
+                  <label class="col-form-label col-md-2">Option 1</label>
+                    <div class="col-md-10">
+                      <input type="text" name="op1" class="form-control" value="<?php echo $row['Option1'];?>">
+                    </div>
+                  </div> <br>
+
+
+                     <div class="form-group row">
+                  <label class="col-form-label col-md-2">Option 2</label>
+                    <div class="col-md-10">
+                      <input type="text" name="op2" class="form-control" value="<?php echo $row['Option2'];?>">
+                    </div>
+                  </div> <br>
+
+                   <div class="form-group row">
+                  <label class="col-form-label col-md-2">Option 3</label>
+                    <div class="col-md-10">
+                      <input type="text" name="op3" class="form-control" value="<?php echo $row['Option3'];?>">
+                    </div>
+                  </div> <br>
+
+                  <div class="form-group row">
                   <label class="col-form-label col-md-2">Answer</label>
                     <div class="col-md-10">
                       <input type="hidden" name="page" value="<?php echo $_GET['page']?>">
@@ -53,7 +76,7 @@
                       <input type="text" name="answer" class="form-control" value="<?php echo $row['answer'];?>">
                     </div>
                   </div> <br>
-                 
+
                   <div class="form-group row mt-10">
                     <label class="col-form-label col-md-4"></label>
                     <div class="col-md-8">

@@ -133,17 +133,33 @@ $row = $result->num_rows;
         </div>
 
 
+            <div class="form-group">
+                <table class="table table-bordered">
+                  <thead>
+                    <tr class="bg-gradient-secondary">
+                      <th>Criteria </th>
+                      <th>Excellent </th>
+                      <th>Proficient </th>
+                      <th> Satisfactory </th>
+                      <th> Unsatisfactory </th>
+                    </tr>
+                  </thead>
+                  
 
-</div>
-</div>
+                </table> 
+
+
+            </div>
 
 
 
 
 
-
+ 
+            </div>
+        </div>
       </div>
-
+       
 
       </div>
     </div>

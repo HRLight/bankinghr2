@@ -249,17 +249,18 @@ if(isset($_POST['addtraining'])){
  
     $dfrom = mysqli_real_escape_string($connect,$_POST['ts_from']);
     $dto = mysqli_real_escape_string($connect,$_POST['ts_to']);
+    $time = mysqli_real_escape_string($connect,$_POST['time2']);
     
     $tloc = mysqli_real_escape_string($connect,$_POST['facility']);
-    $tbudget ='';
+    $tbudget =$_POST['budget'];
     $ext = 'no';
      if($tloc == 'others'){
     $tloc = mysqli_real_escape_string($connect,$_POST['loca']);
     $ext = 'yes';
   }
 
-$sql = "INSERT INTO training_sched (t_name,date_start,date_end,facility_name,budget,status,external) VALUES ";
-$sql .= "('$tname','$dfrom','$dto','$tloc','$tbudget','manager approval','$ext')";
+$sql = "INSERT INTO training_sched (t_name,date_start,date_end,facility_name,budget,status,external,time) VALUES ";
+$sql .= "('$tname','$dfrom','$dto','$tloc','$tbudget','manager approval','$ext','$time')";
 $query = mysqli_query($connect, $sql);
   if($query){
 
@@ -817,9 +818,11 @@ if(isset($_POST['addsubjbtnsw']))
       $dept = $_POST['dept'];
       $page = $_POST['page'];
       $pos = $_POST['pos'];
-
+        $op1=$_POST['ops'];
+      $op2=$_POST['opr'];
+      $op3=$_POST['opd'];
     
-        $query = "INSERT INTO questionaires (question,answer,dept_id,pos_id) VALUES ('$que','$ans','$dept','$pos')";
+        $query = "INSERT INTO questionaires (question,answer,dept_id ,pos_id,Option1,Option2,Option3) VALUES ('$que','$ans','$dept','$pos','$op1','$op2','$op3')";
           $query_run = mysqli_query($connect, $query);
     
         if($query_run)
@@ -857,9 +860,12 @@ if(isset($_POST['editquestionhr']))
     $question= mysqli_real_escape_string($connect, $_POST['question']);
     $answer= mysqli_real_escape_string($connect, $_POST['answer']);
     $page = mysqli_real_escape_string($connect, $_POST['page']);
+    $op1= mysqli_real_escape_string($connect, $_POST['op1']);
+    $op2= mysqli_real_escape_string($connect, $_POST['op2']);
+    $op3= mysqli_real_escape_string($connect, $_POST['op3']);
     
     
-        $query = "UPDATE questionaires SET question='$question', answer='$answer' WHERE id='$id' ";
+        $query = "UPDATE questionaires SET question='$question', answer='$answer', Option1='$op1',Option2='$op2',Option3='$op3' WHERE id='$id' ";
         $query_run = mysqli_query($connect, $query);
     
         if($query_run)

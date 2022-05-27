@@ -64,6 +64,21 @@
 
                    <div class="form-group col-md-6 mx-auto mb-1">
               <div class="col-md-3 mx-auto">
+                    <label class="col-form-label col-md-">Budget</label>
+                      </div> 
+                        <input type="text" name="page" value="<?php echo $info['budget']?>" class="text-center form-control" disabled style="width:20vw; margin: auto;">                  
+                  </div> 
+
+                      <div class="form-group col-md-6 mx-auto mb-1">
+              <div class="col-md-3 mx-auto">
+                    <label class="col-form-label col-md-">Time</label>
+                      </div> 
+                        <input type="text" name="page" value="<?php echo $info['time']?>" class="text-center form-control" disabled style="width:20vw; margin: auto;">                  
+                  </div> 
+
+
+                   <div class="form-group col-md-6 mx-auto mb-1">
+              <div class="col-md-3 mx-auto">
                     <label class="col-form-label col-md-">Facility</label>
                       </div> 
                         <input type="text" name="page" value="<?php echo $info['facility_name']?>" class="text-center form-control" disabled style="width:20vw; margin: auto;">                  

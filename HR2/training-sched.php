@@ -45,6 +45,9 @@
                         <th>No. of Participants</th>
                         <th>From</th>
                         <th>To</th>
+                        <th>Time</th>
+                        <th>Budget</th>
+
                        <th class="text-right">Action</th>
              </tr>
             </thead>
@@ -66,8 +69,11 @@
                         $sql = "SELECT * FROM training_participants WHERE t_id = '$id'";
                         $res = $db->query($sql); ?>
                         <td><?php echo $res->num_rows; ?></td>
-                        <td><?php echo $row['date_start']; ?></td>
+                        <td><?php echo $row['date_start'];?></td>
                         <td><?php echo $row['date_end']; ?></td>
+                        <td><?php echo $row['time']; ?></td>
+                        <td><?php echo $row['budget']; ?></td>
+
                        
                         
                         <td>

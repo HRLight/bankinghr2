@@ -62,7 +62,7 @@
                         <th>Name of Trainee</th>
                         <th>Training Name</th>
                         <th>Position</th>
-                        <th>Date End</th>
+                        <th>Start Date</th>
                         <th>Date End</th>
                         <th class="text-right">Action</th>
              </tr>
