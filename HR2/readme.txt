@@ -1,4 +1,5 @@
 edited files 
+Hr2 folder
 1.add-question.php
 2.hr_exams.php
 3.finance_exams.php
@@ -12,6 +13,10 @@ edited files
 11.add-sched.php
 12.view_training.php
 13.training-course.php
+14.training-sched.php
+
+ess folder
+1apply_dtr.php
 
 database table edited
 1.questionaires

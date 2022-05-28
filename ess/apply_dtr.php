@@ -23,16 +23,20 @@ include('layouts/user_header.php');?>
                             <div class="col-lg-6 mx-auto">
                              <form class="user" method="POST" action="process.php">
                                 <div class="form-group row">
-                                    <div class="col-sm-12 mb-3 mb-sm-0">
+                                  
+                                        <label class="col-form-label col-md-4">Time In</label>
+                                         <div class="col-md-8">
                                         <input type="time" name="time_in" class="form-control form-control-user"
                                             placeholder="Time IN" required>
                                             <input type="hidden" name="id" value="<?php echo $id ?>">
-                                    </div>
+                                
+                                </div>
                                     
                                 </div>
                                 
                                 <div class="form-group row">
-                                    <div class="col-sm-12 mb-3 mb-sm-0">
+                                    <label class="col-form-label col-md-4"> Time Out</label>
+                                     <div class="col-md-8">
                                         <input type="time" name="time_out" class="form-control form-control-user"
                                             placeholder="Time OUT" required>
                                     </div>
@@ -40,12 +44,27 @@ include('layouts/user_header.php');?>
 
 
                                 <div class="form-group row">
-                                   <div class="col-sm-12 mb-3 mb-sm-0">
+                                    <label class="col-form-label col-md-4"> Date</label>
+                                  <div class="col-md-8">
                                         <input type="date" name="date" class="form-control form-control-user"
                                             placeholder="Date" required>
                                     </div>
                                 </div>
-                                <button type="submit" name="add_dtr" class="btn btn-primary btn-user btn-block">
+
+
+                                <div class="form-group row">
+                                    <label class="col-form-label col-md-4">Purpose</label>
+                                  <div class="col-md-8">
+                                       
+                                            <select id="purpose" name="purpose" class="form-control"> 
+                                                <option class="form-control " value="">Select</option>
+                                                   <option class="form-control" value="">Break time</option>
+                                                    <option class="form-control" value="Over Time">Over time</option>
+                                            </select>
+                                    </div>
+                                </div>
+
+                                <button type="submit" style="width: 65%; float: right;" name="add_dtr" class="btn btn-primary btn-user btn-block">
                                     Submit
                                 </button>
                                

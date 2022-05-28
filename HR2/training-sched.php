@@ -85,7 +85,7 @@
                             <a href="view_training.php?id=<?php echo $row['t_id']; ?>" class="btn btn-sm btn-info pull-right"><i class="bi bi-eye"></i> View</a>
                          <?php } }elseif($row['status'] == 'finished'){ ?>
                           <a href="view_training.php?id=<?php echo $row['t_id']; ?>" class="btn btn-sm btn-info pull-right"><i class="bi bi-eye"></i> View</a>
-                        <?php  }else{ echo 'For approval'; } ?>
+                        <?php  }else{ echo 'Approved'; } ?>
                         </td>
                          
                     </tr>
